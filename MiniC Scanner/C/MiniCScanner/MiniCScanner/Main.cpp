@@ -12,9 +12,9 @@ FILE *astFile;                          // AST file
 FILE *sourceFile;                       // miniC source program
 FILE *ucodeFile;                        // ucode file
 
-#define FILE_LEN 30
+#define FILE_LEN 50
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	char fileName[FILE_LEN];
 	int err;

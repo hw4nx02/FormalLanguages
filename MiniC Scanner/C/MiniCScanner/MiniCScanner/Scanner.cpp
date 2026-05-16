@@ -18,7 +18,7 @@ int hexValue(char ch);
 void lexicalError(int n);
 
 
-char *tokenName[] = {
+const char *tokenName[] = {
 	"!",        "!=",      "%",       "%=",     "%ident",   "%number",
 	/* 0          1           2         3          4          5        */
 	"&&",       "(",       ")",       "*",      "*=",       "+",
@@ -36,7 +36,7 @@ char *tokenName[] = {
 	"while",    "{",        "||",       "}"
 };
 
-char *keyword[NO_KEYWORD] = {
+const char *keyword[NO_KEYWORD] = {
 	"const",  "else",    "if",    "int",    "return",  "void",    "while"
 };
 
