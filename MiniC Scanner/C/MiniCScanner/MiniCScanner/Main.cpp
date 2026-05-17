@@ -12,11 +12,9 @@ FILE *astFile;                          // AST file
 FILE *sourceFile;                       // miniC source program
 FILE *ucodeFile;                        // ucode file
 
-#define FILE_LEN 50
-
 int main(int argc, char *argv[])
 {
-	char fileName[FILE_LEN];
+	char fileName[FILE_NAME_LENGTH];
 	int err;
 
 	printf(" *** start of Mini C Compiler\n");
@@ -24,7 +22,7 @@ int main(int argc, char *argv[])
 		icg_error(1);
 		exit(1);
 	}
-	strcpy_s(fileName, argv[1]);
+	strcpy_s(fileName, FILE_NAME_LENGTH, argv[1]);
 	printf("   * source file name: %s\n", fileName);
 
 	err = fopen_s(&sourceFile, fileName, "r");
@@ -37,12 +35,12 @@ int main(int argc, char *argv[])
 	struct tokenType token;
 	
 	printf(" === start of Scanner\n");
+	initScanner(fileName);
 	
 	token = scanner();
 	
 	while (token.number != teof) {
 
-		printf("Current Token --> ");
 		printToken(token);
 		token = scanner();
 		
